@@ -14,6 +14,7 @@ namespace CSharpCube
     public partial class Form1 : Form
     {
         static SerialPort _serialPort;
+        LedCube ledCube = new LedCube();
 
         public Form1()
         {
@@ -22,10 +23,12 @@ namespace CSharpCube
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dataSet11.AGENT' table. You can move, or remove it, as needed.
+            label1.Text = ledCube.leds[0].x.ToString("G") + " " + ledCube.leds[0].y.ToString("G") + " " + ledCube.leds[0].z.ToString("G");
             _serialPort = new SerialPort();
             _serialPort.BaudRate = 38400;
             _serialPort.PortName = "COM20";
-            _serialPort.Open();      
+           // _serialPort.Open();      
         }
 
         private void button1_Click(object sender, EventArgs e)
